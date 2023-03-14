@@ -9,14 +9,32 @@ namespace Todo_List
     class Task
     {
         public string taskname;
-        public string importance;
+        private string importance;
         public DateTime timeAdded;
 
-        public Task(string Taskname, string Importance)
+        public Task(string _taskname, string _importance)
         {
-            taskname = Taskname;
-            importance = Importance;
+            taskname = _taskname;
+            Importance = _importance;
             timeAdded = DateTime.Now;
+        }
+
+        public string Importance
+        {
+            get
+            {
+                return importance;
+            }
+            set
+            {
+                if (value == "Critical" || value == "Important" || value == "Minor")
+                {
+                    importance = value;
+                }else
+                {
+                    importance = "Important";
+                }
+            }
         }
     }
 }
